@@ -10,11 +10,13 @@ import SwiftUI
 @main
 struct afterstoreApp: App {
     let persistenceController = PersistenceController.shared
+    let userData = UserAuth()
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoginView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(UserAuth())
         }
     }
 }
